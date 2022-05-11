@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block body %}
+    <h1 class="log">works log</h1>
+    <div class="works">
+        <p>
+            {% with messages = get_flashed_messages(True) %}
+                {% if messages %}
+                    <ul class="flashes">
+                    {% for message in messages %}
+                    <li style="color: {% if message[0] == 'succ' %}green{% else %}crimson{% endif %};">{{ message[1] }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+        </p>
+        <div class="refs-top" style="display: flex; gap: 15px; width: fit-content;">
+            {% if user %}
+            <a href="/add_job" class="btn btn-primary work" style="width: fit-content; height: fit-content;">Добавить работу</a>
+            {% endif %}
+            <a href="/departments" class="btn btn-primary work">Departments</a>
+        </div>
+        {% for work in works %}
+            <div class="work">
+                <h3>Action #{{work.id}}</h3>
+                <div class="top">
+                    <p class="title">Title</p>
+                    <p class="leader">Team leader</p>
+                    <p class="duration">Duration</p>
+                    <p class="collaborators">List of collaborators</p>
+                    <p class="hazard">Hazard</p>
+                    <p class="finished">Is finished</p>
+                </div>
+                <div class="bot">
+                    <p class="title-info">{{work.job}}</p>
+                    <p class="leader-info">{{work.team_leader}}</p>
+                    <p class="duration-info">{{work.work_size}}</p>
+                    <p class="collaborators-info">{{work.collaborators}}</p>
+                    <p class="hazard-info">{{work.hazard}}</p>
+                    <p class="finished-info">Is {% if not work.is_finished %}not {% endif %}finished</p>
+                </div>
+                <div class="manage" style="display: flex; gap: 15px;">
+                    {% if user.id == work.team_leader or user.id == 1%}
+                    <a href="/edit_job?id={{work.id}}" class="btn btn-warning mt-1">Изменить</a>
+                    <a href="/delete_job?id={{work.id}}" class="btn btn-danger mt-1">Удалить</a>
+                    {% endif %}
+                </div>
+                
+            </div>
+        {% endfor %}
+    </div>
+    
+
+{% endblock %}

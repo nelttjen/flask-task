@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="main">
+    <h1>Carousel</h1>
+    <div class="carousel">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                {% for i in range(files_len) %}
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{i}}" aria-label="Slide {{i+1}}"{% if i == 0%}class="active" aria-current="true"{% endif %}></button>
+                {% endfor %}
+            </div>
+            <div class="carousel-inner">
+                {% for i in files %}
+                <div class="carousel-item {% if i == '1.png' %}active{% endif %}">
+                    <img src="/static/img/carousel/{{i}}" class="d-block w-100" alt="{{url_for('static', filename='img/carousel/alt.png')}}">
+                </div>
+                {% endfor %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <div class="load-file">
+        <h2>Загрузить файл</h2>
+        <form action="" method="post" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <p>
+                {{ form.file.label }}<br>
+                {{ form.file(class="form-control", type="file") }}<br>
+                {% for error in form.file.errors %}
+                    <p class="alert alert-danger" role="alert">
+                        {{ error }}
+                    </p>
+                {% endfor %}
+            </p>
+            <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+        </form>
+    </div>
+    
+</div>
+{% endblock %}

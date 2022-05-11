@@ -1,0 +1,44 @@
+.work {
+    width: fit-content;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.top {
+    display: flex;
+    background-color: gray;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
+
+.bot {
+    display: flex;
+    background-color: lightgray;
+    color: indigo;
+}
+
+.bot p {
+    display: block;
+}
+
+.title, .title-info {
+    width: 350px;
+}
+
+.chief, .chief-info {
+    width: 150px;
+}
+
+.members, .members-info {
+    width: 150px;
+}
+
+.mail, .mail-info {
+    width: 250px;
+}
+
+.works {
+    width: fit-content;
+    margin: auto;
+}

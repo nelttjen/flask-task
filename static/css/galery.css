@@ -1,0 +1,11 @@
+.main {
+    width: 600px;
+    margin: auto;
+    text-align: center;
+}
+
+.load-file {
+    border: 1px solid black;
+    width: 500px;
+    margin: 15px auto;
+}

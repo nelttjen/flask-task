@@ -1,0 +1,46 @@
+.head {
+    text-align: center;
+}
+
+.show-block {
+    width: 800px;
+    height: fit-content;
+    margin: auto;
+}
+
+.top, .bot {
+    display: grid;
+    grid-template-columns: 400px 400px;
+    
+}
+
+.top {
+    grid-template-rows: auto;
+    background-color: lightgray;
+    text-align: center;
+}
+
+.bot {
+    grid-template-rows: 500px 500px;
+}
+
+.bot img {
+    width: 400px;
+    height: 500px;
+}
+
+.color-blue {
+    background-color: blue;
+}
+
+.color-blue-child {
+    background-color: lightblue;
+}
+
+.color-red {
+    background-color: crimson;
+}
+
+.color-red-child {
+    background-color: lightcoral;
+}

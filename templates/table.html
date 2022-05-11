@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block body %}
+    <h1 class="head">Оформление каюты</h1>
+    <div class="show-block">
+        <div class="top">
+            <p>Цвет каюты</p>
+            <p>Эмблема</p>
+        </div>
+        <div class="bot">
+            <div class="color-{% if gender == 'male'%}blue{% else %}red{% endif %}{% if age < 21%}-child{% endif %}"></div>
+            {% if age < 21 %}
+            <img src="{{url_for('static', filename='img/child.jpg')}}" alt="">
+            {% else %}
+            <img src="{{url_for('static', filename='img/adult.jpg')}}">
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

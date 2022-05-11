@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head%}
+    <meta charset="UTF-8">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{css|safe}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/base.css')}}">
+    {% endblock %}
+</head>
+<body>
+    <header class="header">
+        <div class="info">
+            <h1>Миссия колонизация марса</h1>
+            <p>И на марсе будут яблони цвести!</p>
+        </div>
+        <div class="center">
+            {% if user %} 
+            <p>{{user.surname}} {{user.name}}</p>
+            <a href="/logout" class="btn btn-primary" style="user-select: none; text-decoration: none; color: whitesmoke;">Выйти</a>
+            {% else %}
+            <a href="/login" class="btn btn-primary" style="user-select: none; text-decoration: none; color: whitesmoke;">Войти</a>
+            <a href="/register" class="btn btn-primary" style="user-select: none; text-decoration: none; color: whitesmoke;">Регистрация</a>
+            {% endif %}
+        </div>
+        <div class="mars-one">
+            <p>Mars One</p>
+        </div>      
+    </header>
+    {% block body %}
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block body %}
+    <h1 class="log" style="text-align: center;">Departments</h1>
+    <div class="works">
+        <p>
+            {% with messages = get_flashed_messages(True) %}
+                {% if messages %}
+                    <ul class="flashes">
+                    {% for message in messages %}
+                    <li style="color: {% if message[0] == 'succ' %}green{% else %}crimson{% endif %};">{{ message[1] }}</li>
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endwith %}
+        </p>
+        <div class="refs-top" style="display: flex; gap: 15px; width: fit-content;">
+            <a href="/index" class="btn btn-primary work">Back to jobs</a>
+            {% if user %}
+            <a href="/add_department" class="btn btn-primary work" style="width: fit-content; height: fit-content;">Add Department</a>
+            {% endif %}
+        </div>
+        {% for i in range(len_all) %}
+            <div class="work">
+                <h3>Department #{{i + 1}}</h3>
+                <div class="top">
+                    <p class="title">Title</p>
+                    <p class="chief">Chief</p>
+                    <p class="members">Members</p>
+                    <p class="mail">Email</p>
+                </div>
+                <div class="bot">
+                    <p class="title-info">{{deps[i].title}}</p>
+                    <p class="chief-info">{{chiefs[i].surname}} {{chiefs[i].name}}</p>
+                    <p class="members-info">{{deps[i].members}}</p>
+                    <p class="mail-info">{{deps[i].email}}</p>
+                </div>
+                <div class="manage" style="display: flex; gap: 15px;">
+                    {% if user.id == chiefs[i].id or user.id == 1%}
+                    <a href="/edit_department?id={{deps[i].id}}" class="btn btn-warning mt-1">Изменить</a>
+                    <a href="/delete_department?id={{deps[i].id}}" class="btn btn-danger mt-1">Удалить</a>
+                    {% endif %}
+                </div>
+                
+            </div>
+        {% endfor %}
+    </div>
+    
+
+{% endblock %}

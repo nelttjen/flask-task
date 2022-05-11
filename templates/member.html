@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block body %}
+    <div class="main">
+        {% with user = j_data|random%}
+        <h1>{{user['name']}} {{user['surname']}}</h1>
+        <img src="/static/img/users/{{user['filename']}}" alt="NO IMAGE">
+        <p>{{user['profs']|sort|join(', ')}}</p>
+        {% endwith %}
+    </div>
+{% endblock %}

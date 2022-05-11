@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block body %}
+    <div class="container">
+        <h1>nostalgia</h1>
+        <h2>{{user.name}} {{user.surname}}</h2>
+        <h3>hometown {{user.city_from}}</h3>
+        <img src="{{img|safe}}" alt="NO IMAGE">
+    </div>
+{% endblock %}

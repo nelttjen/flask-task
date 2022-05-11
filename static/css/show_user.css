@@ -1,0 +1,11 @@
+.container {
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+    text-align: center;
+}
+
+.container img {
+    width: 800px;
+    height: 600px;
+}

@@ -1,0 +1,60 @@
+.log {
+    text-align: center;
+}
+
+.work {
+    width: fit-content;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.top {
+    display: flex;
+    background-color: gray;
+    width: fit-content;
+    height: fit-content;
+    margin: auto;
+}
+
+.bot {
+    display: flex;
+    background-color: lightgray;
+    color: indigo;
+}
+
+.bot p {
+    display: block;
+}
+
+.title, .title-info {
+    width: 275px;
+}
+
+.leader, .leader-info {
+    width: 150px;
+}
+
+.duration, .duration-info {
+    width: 150px;
+}
+
+.collaborators, .collaborators-info {
+    width: 200px;
+}
+
+.hazard, .hazard-info {
+    width: 150px;
+}
+
+.finished, .finished-info {
+    width: 175px;
+}
+
+.finished-info {
+    color: blue;
+}
+
+.works {
+    width: fit-content;
+    margin: auto;
+}
